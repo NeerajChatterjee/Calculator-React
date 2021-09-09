@@ -1,6 +1,6 @@
 # Project deployed on Netlify
 
-Link : [Click](https://angry-mccarthy-6cfbac.netlify.app)
+Link : [Click](https://brave-swirles-5ac136.netlify.app)
 
 
 ## Getting Started with Create React App

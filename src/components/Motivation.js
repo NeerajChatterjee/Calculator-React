@@ -5,7 +5,8 @@ class Motivation extends React.Component{
     constructor(){
         super()
         this.state = {
-            quote: ""
+            quote: "",
+            isLoading: false
         }
         this.quotes = this.quotes.bind(this)
     }
@@ -15,19 +16,22 @@ class Motivation extends React.Component{
          .then(response => response.json())
          .then(data => {
              this.setState({
-                 quote: data.quote.body
+                 quote: data.quote.body,
+                 isLoading: false
              })
          })
     }
 
     componentDidMount(){
+        this.setState({isLoading: true})
         this.quotes()
     }
 
     render(){
+        let text = this.state.isLoading ? "Loading..Please wait" : this.state.quote 
         return(
             <div className="Motiv">
-               <p className="Motivpara">{this.state.quote}</p>
+               <p className="Motivpara">{text}</p>
                <button onClick={this.quotes} className="Motivbutton">REFRESH</button>
             </div>
         )
